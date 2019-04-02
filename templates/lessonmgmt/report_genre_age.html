@@ -1,0 +1,25 @@
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">ジャンル名</th>
+      <th scope="col">性別</th>
+      <th scope="col">年齢層別</th>
+      <th scope="col">レッスン時間</th>
+      <th scope="col">受講者数</th>
+      <th scope="col">売上</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for report in reports_genre_age %}
+    <tr>
+      <td>{{ report.lessonName }}</td>
+      <td>{{ report.gender }}</td>
+      <td>{{ report.age }}</td>
+      <td>{{ report.lessonHours }}</td>
+      <td>{{ report.customerCount }}</td>
+      <td>{{ report.Total_Price }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+

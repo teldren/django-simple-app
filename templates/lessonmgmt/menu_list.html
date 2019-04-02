@@ -1,0 +1,14 @@
+{% extends "lessonmgmt/base.html" %}
+
+{% block title %}メニュー{% endblock title %}
+
+{% block content %}
+<ul>
+  <li><a href="{% url 'lessonmgmt:lesson_list' %}" class="list-group-item">ジャンル一覧</a></li>
+  <li><a href="{% url 'lessonmgmt:customer_list' %}" class="list-group-item">顧客一覧</a></li>
+  <li><a href="{% url 'lessonmgmt:lessonhistory_list' %}" class="list-group-item">レッスン受講記録</a></li>
+  <li><a href="{% url 'lessonmgmt:invoice_search_form' %}" class="list-group-item">月別請求一覧</a></li>
+  <li><a href="{% url 'lessonmgmt:report_search_form' %}" class="list-group-item">レポート</a></li>
+</ul>
+
+{% endblock content %}

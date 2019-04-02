@@ -1,0 +1,23 @@
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">顧客ID</th>
+      <th scope="col">顧客名</th>
+      <th scope="col">ジャンル名</th>
+      <th scope="col">合計レッスン時間</th>
+      <th scope="col">請求金額</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for invoice in invoices %}
+    <tr>
+      <th scope="row">{{ invoice.customer_id }}</th>
+      <td>{{ invoice.name }}</td>
+      <td>{{ invoice.lessonName }}</td>
+      <td>{{ invoice.lessonHours }}</td>
+      <td>{{ invoice.Total_Price }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+

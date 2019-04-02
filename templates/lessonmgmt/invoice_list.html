@@ -1,0 +1,43 @@
+{% extends "lessonmgmt/base.html" %}
+{% load bootstrap4 %}
+
+{% block title %}請求一覧{% endblock title %}
+
+{% block content %}
+<h4 class="mt-4 border-bottom">請求一覧</h4>
+
+<form id="select_month" action="{% url 'lessonmgmt:invoice_filter' %}" method="get">
+  {% csrf_token %}
+  {% bootstrap_form form layout='horizontal' %}
+  <div class="form-group row">
+    <div class="offset-md-3 col-md-9">
+      <button type="submit" class="btn btn-primary">送信</button>
+    </div>
+  </div>
+</form>
+
+<tbody>
+  <!-- 検索結果の請求一覧表示 -->
+  <div id="invoice_filter">{% include 'lessonmgmt/invoice_filter.html' %}</div>
+</tbody>
+
+{% endblock content %}
+
+{% block extra_js %}
+<script>
+ $("#select_month").submit( function(event) {
+   event.preventDefault();
+   var form = $(this);
+   $.ajax({
+     url: form.prop("action"),
+     method: form.prop("method"),
+     data: form.serialize(),
+     timeout: 10000,
+     dataType: "text",
+   })
+    .done( function(data) {
+      $("#invoice_filter").html(data);
+    })
+ });
+</script>
+{% endblock extra_js %}

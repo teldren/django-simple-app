@@ -1,0 +1,27 @@
+{% extends "lessonmgmt/base.html" %}
+{% load bootstrap4 %}
+
+{% block title %}ジャンルの追加・編集{% endblock title %}
+
+{% block content %}
+<h4 class="mt-4 mb-5 border-bottom">ジャンルの追加・編集</h4>
+{% if object.pk %}
+<form action="{% url 'lessonmgmt:lesson_update' object.pk %}" method="post">
+  {% else %}
+  <form action="{% url 'lessonmgmt:lesson_add' %}" method="post">
+    {% endif %}
+    {% csrf_token %}
+    {% bootstrap_form form layout='horizontal' %}
+    <div class="form-group row">
+      <div class="offset-md-3 col-md-9">
+        e.g. [{"hour" : 0, "rate" : 1500}, {"hour" : 20, "rate" : 1000}, {"hour" : 35, "rate" : 800}]
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-md-3 col-md-9">
+        <button type="submit" class="btn btn-primary">送信</button>
+      </div>
+    </div>
+  </form>
+  <a href="{% url 'lessonmgmt:lesson_list' %}" class="btn btn-secondary btn-sm">戻る</a>
+  {% endblock content %}
