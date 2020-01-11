@@ -30,3 +30,4 @@ urlpatterns = [
     path('report/', views.report_view.ReportView.as_view(), name='report_search_form'),   # 検索フォーム
     path('report/genre_gender_age', views.report_view.GenreGenderAgeFilterView.as_view(), name='report_genre_gender_age'),   # ジャンル年齢レポート画面
 ]
+# Add comments.
